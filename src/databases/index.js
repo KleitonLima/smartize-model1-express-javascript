@@ -8,7 +8,7 @@ export const produtos = [
     cor: 'Azul',
     condicao: 'Usado e recondicionado',
     foto: 'https://m.media-amazon.com/images/I/41+hk6RUpPL._AC_.jpg',
-    preco: 'R$1.650',
+    preco: 1650.00,
     garantia: '3 meses'
   },
   {
@@ -20,7 +20,7 @@ export const produtos = [
     cor: 'Vermelho',
     condicao: 'Novo',
     foto: 'https://cf.shopee.com.br/file/4ea39ed339f88589e14d86a083ecf781',
-    preco: 'R$249,90',
+    preco: 249.90,
     garantia: '3 meses'
   },
   {
@@ -32,7 +32,7 @@ export const produtos = [
     cor: 'Preto',
     condicao: 'Novo',
     foto: 'https://vxcase.vteximg.com.br/arquivos/ids/267748-1000-1000/acessorios-vxcase-21020.png',
-    preco: 'R$159,99',
+    preco: 159.99,
     garantia: '3 meses'
   },
 ];
