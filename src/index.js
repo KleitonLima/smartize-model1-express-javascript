@@ -8,7 +8,7 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/produtos', (req, res) => {
+app.get('/produtos/listar-produtos', (req, res) => {
   res.send(produtos);
 });
 app.get('/produtos/:id', (req, res) => {
