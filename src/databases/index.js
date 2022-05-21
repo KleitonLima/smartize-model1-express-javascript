@@ -4,12 +4,13 @@ export const produtos = [
     tipo: 'Smartphone',
     marca: 'Samsung',
     modelo: 'S10 Plus, 128GB, 8GB RAM',
-    descricao: 'Smartphone Samsung Galaxy S10 Plus com 128GB de armazenamento interno e 8GB RAM',
+    descricao:
+      'Smartphone Samsung Galaxy S10 Plus com 128GB de armazenamento interno e 8GB RAM',
     cor: 'Azul',
     condicao: 'Usado e recondicionado',
     foto: 'https://m.media-amazon.com/images/I/41+hk6RUpPL._AC_.jpg',
-    preco: 1650.00,
-    garantia: '3 meses'
+    preco: 1650.0,
+    garantia: '3 meses',
   },
   {
     id: 2,
@@ -20,8 +21,8 @@ export const produtos = [
     cor: 'Vermelho',
     condicao: 'Novo',
     foto: 'https://cf.shopee.com.br/file/4ea39ed339f88589e14d86a083ecf781',
-    preco: 249.90,
-    garantia: '3 meses'
+    preco: 249.9,
+    garantia: '3 meses',
   },
   {
     id: 3,
@@ -33,6 +34,6 @@ export const produtos = [
     condicao: 'Novo',
     foto: 'https://vxcase.vteximg.com.br/arquivos/ids/267748-1000-1000/acessorios-vxcase-21020.png',
     preco: 159.99,
-    garantia: '3 meses'
+    garantia: '3 meses',
   },
 ];
