@@ -1,6 +1,5 @@
 import express from 'express';
 import cors from 'cors';
-import { produtos } from './databases';
 import { produtosRouters } from './routers/produtos.routers';
 
 export const app = express();
