@@ -11,7 +11,10 @@ app.get('/produtos/listar-produtos', (req, res) => {
   res.send(produtos);
 });
 app.get('/produtos/listar-produto/:id', (req, res) => {
-  const idProduto = req.params.id;
-  const atualProduto = produtos.find((produtos) => produtos.id == idProduto);
+  const { id } = req.params;
+  const atualProduto = produtos.find((produtos) => produtos.id == id);
+  if(atualProduto === undefined) {
+    res.status(404).send('Paleta não encontrada')
+  }
   res.send(atualProduto);
 });
