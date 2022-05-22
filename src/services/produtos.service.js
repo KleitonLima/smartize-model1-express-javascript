@@ -5,7 +5,7 @@ export class ProdutosServices {
     return produtos;
   }
   produtoPorId(id) {
-    const atualProduto = produtos.find((produtos) => produtos.id == id);
+    const atualProduto = produtos.find((elem) => elem.id == id);
     return atualProduto;
   }
   criarNovoProduto(
@@ -35,5 +35,38 @@ export class ProdutosServices {
     };
     produtos.push(novoProduto);
     return novoProduto;
+  }
+  atualizarProduto(
+    id,
+    tipo,
+    marca,
+    modelo,
+    descricao,
+    cor,
+    condicao,
+    foto,
+    preco,
+    garantia,
+  ) {
+    const produtoAtualizado = {
+      id,
+      tipo,
+      marca,
+      modelo,
+      descricao,
+      cor,
+      condicao,
+      foto,
+      preco,
+      garantia,
+    };
+    const produtoIndex = produtos.findIndex((elem) => elem.id == id);
+    produtos[produtoIndex] = produtoAtualizado;
+
+    return produtoAtualizado;
+  }
+  deletarProduto(id) {
+    const produtoIndex = produtos.findIndex((elem) => elem.id == id);
+    produtos.splice(produtoIndex, 1);
   }
 }

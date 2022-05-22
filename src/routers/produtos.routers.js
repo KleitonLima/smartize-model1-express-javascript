@@ -7,3 +7,11 @@ const produtosControllers = new ProdutosControllers();
 produtosRouters.get('/listar-produtos', produtosControllers.todosProdutos);
 produtosRouters.get('/listar-produto/:id', produtosControllers.produtoPorId);
 produtosRouters.post('/criar-produto', produtosControllers.criarNovoProduto);
+produtosRouters.put(
+  '/atualizar-produto/:id',
+  produtosControllers.atualizarProduto,
+);
+produtosRouters.delete(
+  '/deletar-produto/:id',
+  produtosControllers.deletarProduto,
+);
