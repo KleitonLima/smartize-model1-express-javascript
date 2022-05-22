@@ -28,7 +28,7 @@ export const produtos = [
     id: 3,
     tipo: 'Tripé',
     marca: 'VX Case',
-    modelo: '',
+    modelo: 'Profissional',
     descricao: 'Tripé profissional para smartphones e câmeras',
     cor: 'Preto',
     condicao: 'Novo',

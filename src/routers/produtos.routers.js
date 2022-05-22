@@ -6,3 +6,4 @@ const produtosControllers = new ProdutosControllers();
 
 produtosRouters.get('/listar-produtos', produtosControllers.todosProdutos);
 produtosRouters.get('/listar-produto/:id', produtosControllers.produtoPorId);
+produtosRouters.post('/criar-produto', produtosControllers.criarNovoProduto);

@@ -12,4 +12,30 @@ export class ProdutosControllers {
     const produto = produtosServices.produtoPorId(id);
     res.send(produto);
   }
+  criarNovoProduto(req, res) {
+    const {
+      tipo,
+      marca,
+      modelo,
+      descricao,
+      cor,
+      condicao,
+      foto,
+      preco,
+      garantia,
+    } = req.body;
+    const novoProduto = produtosServices.criarNovoProduto(
+      tipo,
+      marca,
+      modelo,
+      descricao,
+      cor,
+      condicao,
+      foto,
+      preco,
+      garantia,
+    );
+
+    res.status(201).send(novoProduto);
+  }
 }
