@@ -2,12 +2,18 @@ import { produtos } from '../databases';
 
 export class ProdutosServices {
   todosProdutos() {
+    if (produtos.length === 0) {
+      throw { status: 404, message: 'Nenhum produto cadastrado' };
+    }
     return produtos;
   }
+
   produtoPorId(id) {
     const atualProduto = produtos.find((elem) => elem.id == id);
+
     return atualProduto;
   }
+
   criarNovoProduto(
     tipo,
     marca,
@@ -33,9 +39,11 @@ export class ProdutosServices {
       preco,
       garantia,
     };
+
     produtos.push(novoProduto);
     return novoProduto;
   }
+
   atualizarProduto(
     id,
     tipo,
@@ -65,6 +73,7 @@ export class ProdutosServices {
 
     return produtoAtualizado;
   }
+
   deletarProduto(id) {
     const produtoIndex = produtos.findIndex((elem) => elem.id == id);
     produtos.splice(produtoIndex, 1);

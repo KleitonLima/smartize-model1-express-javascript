@@ -1,20 +1,25 @@
-import { produtos } from '../databases';
 import { ProdutosServices } from '../services/produtos.service';
 
 const produtosServices = new ProdutosServices();
 
 export class ProdutosControllers {
   todosProdutos(req, res) {
-    const produtos = produtosServices.todosProdutos();
-    
-    res.send(produtos);
+    try {
+      const produtos = produtosServices.todosProdutos();
+
+      res.send(produtos);
+    } catch (error) {
+      res.status(error.status).send(error.message);
+    }
   }
+
   produtoPorId(req, res) {
     const id = +req.params.id;
     const produto = produtosServices.produtoPorId(id);
 
     res.send(produto);
   }
+
   criarNovoProduto(req, res) {
     const {
       tipo,
@@ -42,6 +47,7 @@ export class ProdutosControllers {
 
     res.status(201).send(novoProduto);
   }
+
   atualizarProduto(req, res) {
     const {
       tipo,
@@ -54,10 +60,9 @@ export class ProdutosControllers {
       preco,
       garantia,
     } = req.body;
-    
+
     const id = +req.params.id;
     const produtoAtualizado = produtosServices.atualizarProduto(
-      
       id,
       tipo,
       marca,
@@ -72,6 +77,7 @@ export class ProdutosControllers {
 
     res.send(produtoAtualizado);
   }
+
   deletarProduto(req, res) {
     const id = +req.params.id;
     produtosServices.deletarProduto(id);
