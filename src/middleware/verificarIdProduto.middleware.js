@@ -5,7 +5,7 @@ export const verificarIdProdutoMiddleware = (req, res, next) => {
   const atualProduto = produtos.find((elem) => elem.id === id);
 
   if (!atualProduto) {
-    return res.status(404).send('Produto não encontrado!')
+    return res.status(404).send('Produto não encontrado!');
   }
   next();
 };
