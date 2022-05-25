@@ -78,10 +78,10 @@ export class ProdutosControllers {
     res.send(produtoAtualizado);
   }
 
-  deletarProduto(req, res) {
+  async deletarProduto(req, res) {
     const id = req.params.id;
-    produtosServices.deletarProduto(id);
+    const produto = await produtosServices.deletarProduto(id);
 
-    res.sendStatus(204);
+    res.status(200).send(produto);
   }
 }

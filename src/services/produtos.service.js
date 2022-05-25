@@ -68,12 +68,16 @@ export class ProdutosServices {
       garantia,
     };
 
-    await Produto.updateOne({ _id: id }, produtoAtualizado);
-    const produto = await Produto.findById(id);
+    const produto =
+      (await Produto.updateOne({ _id: id }, produtoAtualizado)) &&
+      (await Produto.findById(id));
+
     return produto;
   }
 
   async deletarProduto(id) {
-    await Produto.deleteOne({ _id: id });
+    const produto = await Produto.findByIdAndDelete(id);
+
+    return produto;
   }
 }
