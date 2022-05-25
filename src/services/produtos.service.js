@@ -68,8 +68,8 @@ export class ProdutosServices {
       garantia,
     };
 
-    const produto = await Produto.updateOne({ _id: id }, produtoAtualizado);
-
+    await Produto.updateOne({ _id: id }, produtoAtualizado);
+    const produto = await Produto.findById(id);
     return produto;
   }
 

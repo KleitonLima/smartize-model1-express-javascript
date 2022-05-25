@@ -61,7 +61,10 @@ export class ProdutosControllers {
       garantia,
     } = req.body;
 
+    const id = req.params.id;
+
     const produtoAtualizado = await produtosServices.atualizarProduto(
+      id,
       tipo,
       marca,
       modelo,
@@ -72,7 +75,6 @@ export class ProdutosControllers {
       preco,
       garantia,
     );
-
     res.send(produtoAtualizado);
   }
 
