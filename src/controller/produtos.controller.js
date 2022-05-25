@@ -3,9 +3,9 @@ import { ProdutosServices } from '../services/produtos.service';
 const produtosServices = new ProdutosServices();
 
 export class ProdutosControllers {
-  todosProdutos(req, res) {
+  async todosProdutos(req, res) {
     try {
-      const produtos = produtosServices.todosProdutos();
+      const produtos = await produtosServices.todosProdutos();
 
       res.send(produtos);
     } catch (error) {
@@ -13,14 +13,14 @@ export class ProdutosControllers {
     }
   }
 
-  produtoPorId(req, res) {
-    const id = +req.params.id;
-    const produto = produtosServices.produtoPorId(id);
+  async produtoPorId(req, res) {
+    const id = req.params.id;
+    const produto = await produtosServices.produtoPorId(id);
 
     res.send(produto);
   }
 
-  criarNovoProduto(req, res) {
+  async criarNovoProduto(req, res) {
     const {
       tipo,
       marca,
@@ -33,7 +33,7 @@ export class ProdutosControllers {
       garantia,
     } = req.body;
 
-    const novoProduto = produtosServices.criarNovoProduto(
+    const novoProduto = await produtosServices.criarNovoProduto(
       tipo,
       marca,
       modelo,
@@ -48,7 +48,7 @@ export class ProdutosControllers {
     res.status(201).send(novoProduto);
   }
 
-  atualizarProduto(req, res) {
+  async atualizarProduto(req, res) {
     const {
       tipo,
       marca,
@@ -61,9 +61,7 @@ export class ProdutosControllers {
       garantia,
     } = req.body;
 
-    const id = +req.params.id;
-    const produtoAtualizado = produtosServices.atualizarProduto(
-      id,
+    const produtoAtualizado = await produtosServices.atualizarProduto(
       tipo,
       marca,
       modelo,
@@ -79,7 +77,7 @@ export class ProdutosControllers {
   }
 
   deletarProduto(req, res) {
-    const id = +req.params.id;
+    const id = req.params.id;
     produtosServices.deletarProduto(id);
 
     res.sendStatus(204);

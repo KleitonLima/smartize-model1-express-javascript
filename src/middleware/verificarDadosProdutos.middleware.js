@@ -1,5 +1,3 @@
-import { produtos } from '../databases';
-
 export const verificarDadosProdutos = (req, res, next) => {
   const {
     tipo,

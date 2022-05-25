@@ -1,39 +1,11 @@
-export const produtos = [
-  {
-    id: 1,
-    tipo: 'Smartphone',
-    marca: 'Samsung',
-    modelo: 'S10 Plus, 128GB, 8GB RAM',
-    descricao:
-      'Smartphone Samsung Galaxy S10 Plus com 128GB de armazenamento interno e 8GB RAM',
-    cor: 'Azul',
-    condicao: 'Usado e recondicionado',
-    foto: 'https://files.tecnoblog.net/wp-content/uploads/2020/11/galaxy-s10-plus-produto.png',
-    preco: 1650.0,
-    garantia: '3 meses',
-  },
-  {
-    id: 2,
-    tipo: 'Headset Gamer',
-    marca: 'HyperX',
-    modelo: 'Cloud Core + 7.1',
-    descricao: 'Headset Gamer, HyperX Cloud Core + 7.1',
-    cor: 'Preto',
-    condicao: 'Novo',
-    foto: 'https://t.ctcdn.com.br/3mfAQEmG0J665TQKJPkLiVM8ppg=/fit-in/400x400/filters:fill(transparent):watermark(wm/prd.png,-32p,center,1,none,15)/i414171.png',
-    preco: 299.9,
-    garantia: '1 ano',
-  },
-  {
-    id: 3,
-    tipo: 'Tripé',
-    marca: 'VX Case',
-    modelo: 'Profissional',
-    descricao: 'Tripé profissional para smartphones e câmeras',
-    cor: 'Preto',
-    condicao: 'Novo',
-    foto: 'https://vxcase.vteximg.com.br/arquivos/ids/267748-1000-1000/acessorios-vxcase-21020.png',
-    preco: 159.99,
-    garantia: '3 meses',
-  },
-];
+import { connect } from 'mongoose';
+
+export const conexaoDatabase = () => {
+  connect('mongodb://localhost:27017/lojasmartize_db')
+    .then(() => {
+      console.log('MongoDb Conectado');
+    })
+    .catch((err) => {
+      console.log(`Erro de conexão com o MongoDb: ${err}`);
+    });
+};

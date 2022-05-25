@@ -1,20 +1,23 @@
-import { produtos } from '../databases';
+import { Produto } from '../models/produtos.model';
 
 export class ProdutosServices {
-  todosProdutos() {
+  async todosProdutos() {
+    const produtos = await Produto.find();
+
     if (produtos.length === 0) {
       throw { status: 404, message: 'Nenhum produto cadastrado' };
     }
+
     return produtos;
   }
 
-  produtoPorId(id) {
-    const atualProduto = produtos.find((elem) => elem.id == id);
+  async produtoPorId(id) {
+    const atualProduto = await Produto.findById(id);
 
     return atualProduto;
   }
 
-  criarNovoProduto(
+  async criarNovoProduto(
     tipo,
     marca,
     modelo,
@@ -25,10 +28,7 @@ export class ProdutosServices {
     preco,
     garantia,
   ) {
-    const novoId =
-      produtos.length === 0 ? 1 : produtos[produtos.length - 1].id + 1;
     const novoProduto = {
-      id: novoId,
       tipo,
       marca,
       modelo,
@@ -40,11 +40,11 @@ export class ProdutosServices {
       garantia,
     };
 
-    produtos.push(novoProduto);
-    return novoProduto;
+    const produto = await Produto.create(novoProduto);
+    return produto;
   }
 
-  atualizarProduto(
+  async atualizarProduto(
     id,
     tipo,
     marca,
@@ -57,7 +57,6 @@ export class ProdutosServices {
     garantia,
   ) {
     const produtoAtualizado = {
-      id,
       tipo,
       marca,
       modelo,
@@ -68,14 +67,13 @@ export class ProdutosServices {
       preco,
       garantia,
     };
-    const produtoIndex = produtos.findIndex((elem) => elem.id == id);
-    produtos[produtoIndex] = produtoAtualizado;
 
-    return produtoAtualizado;
+    const produto = await Produto.updateOne({ _id: id }, produtoAtualizado);
+
+    return produto;
   }
 
-  deletarProduto(id) {
-    const produtoIndex = produtos.findIndex((elem) => elem.id == id);
-    produtos.splice(produtoIndex, 1);
+  async deletarProduto(id) {
+    await Produto.deleteOne({ _id: id });
   }
 }
