@@ -1,5 +1,5 @@
-import { app } from './app';
-import { conexaoDatabase } from './databases';
+import app from './app';
+import conexaoDatabase from './databases';
 
 const port = 3001;
 

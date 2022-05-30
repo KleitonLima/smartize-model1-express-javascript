@@ -1,6 +1,6 @@
 import { connect } from 'mongoose';
 
-export const conexaoDatabase = () => {
+const conexaoDatabase = () => {
   connect('mongodb://localhost:27017/lojasmartize_db', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -12,3 +12,5 @@ export const conexaoDatabase = () => {
       console.log(`Erro de conexão com o MongoDb: ${err}`);
     });
 };
+
+export default conexaoDatabase;

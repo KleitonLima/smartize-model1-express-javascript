@@ -1,7 +1,7 @@
-import { Produto } from '../models/produtos.model';
+import Produto from '../models/produtos.model';
 import mongoose from 'mongoose';
 
-export const verificarIdProdutoMiddleware = async (req, res, next) => {
+const verificarIdProdutoMiddleware = async (req, res, next) => {
   const id = req.params.id;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -15,3 +15,5 @@ export const verificarIdProdutoMiddleware = async (req, res, next) => {
   }
   next();
 };
+
+export default verificarIdProdutoMiddleware;

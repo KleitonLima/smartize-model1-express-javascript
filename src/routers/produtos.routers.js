@@ -1,9 +1,9 @@
 import { Router } from 'express';
-import { ProdutosControllers } from '../controller/produtos.controller';
-import { verificarIdProdutoMiddleware } from '../middleware/verificarIdProduto.middleware';
-import { verificarDadosProdutos } from '../middleware/verificarDadosProdutos.middleware';
+import ProdutosControllers from '../controller/produtos.controller';
+import verificarIdProdutoMiddleware from '../middleware/verificarIdProduto.middleware';
+import verificarDadosProdutos from '../middleware/verificarDadosProdutos.middleware';
 
-export const produtosRouters = Router();
+const produtosRouters = Router();
 const produtosControllers = new ProdutosControllers();
 
 produtosRouters.get('/listar-produtos', produtosControllers.todosProdutos);
@@ -28,3 +28,5 @@ produtosRouters.delete(
   verificarIdProdutoMiddleware,
   produtosControllers.deletarProduto,
 );
+
+export default produtosRouters;

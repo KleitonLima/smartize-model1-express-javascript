@@ -1,4 +1,4 @@
-export const verificarDadosProdutos = (req, res, next) => {
+const verificarDadosProdutos = (req, res, next) => {
   const {
     tipo,
     marca,
@@ -26,3 +26,5 @@ export const verificarDadosProdutos = (req, res, next) => {
   }
   next();
 };
+
+export default verificarDadosProdutos;

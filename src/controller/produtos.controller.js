@@ -1,8 +1,8 @@
-import { ProdutosServices } from '../services/produtos.service';
+import ProdutosServices from '../services/produtos.service';
 
 const produtosServices = new ProdutosServices();
 
-export class ProdutosControllers {
+class ProdutosControllers {
   async todosProdutos(req, res) {
     try {
       const produtos = await produtosServices.todosProdutos();
@@ -85,3 +85,5 @@ export class ProdutosControllers {
     res.status(200).send(produto);
   }
 }
+
+export default ProdutosControllers;

@@ -1,6 +1,6 @@
-import { Produto } from '../models/produtos.model';
+import Produto from '../models/produtos.model';
 
-export class ProdutosServices {
+class ProdutosServices {
   async todosProdutos() {
     const produtos = await Produto.find();
 
@@ -81,3 +81,5 @@ export class ProdutosServices {
     return produto;
   }
 }
+
+export default ProdutosServices;
