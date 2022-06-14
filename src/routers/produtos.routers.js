@@ -6,7 +6,7 @@ import verificarDadosProdutos from '../middleware/verificarDadosProdutos.middlew
 const produtosRouters = Router();
 const produtosControllers = new ProdutosControllers();
 
-produtosRouters.get('/listar-produtos', produtosControllers.todosProdutos);
+produtosRouters.get('/listar-produtos', ProdutosControllers.todosProdutos);
 produtosRouters.get(
   '/listar-produto/:id',
   verificarIdProdutoMiddleware,
