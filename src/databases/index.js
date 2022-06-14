@@ -3,10 +3,13 @@ import mongoose from 'mongoose';
 const { connect } = mongoose;
 
 const conexaoDatabase = () => {
-  connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  connect(
+    'mongodb+srv://KleitonLima:112131@cluster0.nxwwbes.mongodb.net/lojasmartize_db?retryWrites=true&w=majority',
+    {
+      useNewUrlParser: true,
+      useUnifiedTopology: true,
+    },
+  )
     .then(() => {
       console.log('MongoDb Conectado');
     })
