@@ -1,4 +1,4 @@
-import Usuarios from '../models/usuarios.model';
+import Usuarios from '../models/usuarios.model.js';
 
 class UsuariosServices {
   async listarTodos() {

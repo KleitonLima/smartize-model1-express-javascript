@@ -1,6 +1,6 @@
 import 'dotenv/config';
 import app from './app';
-import conexaoDatabase from './databases';
+import conexaoDatabase from './databases/index.js';
 
 const port = process.env.PORT || 3001;
 

@@ -1,7 +1,7 @@
 import { Router } from 'express';
-import ProdutosControllers from '../controller/produtos.controller';
-import verificarIdProdutoMiddleware from '../middleware/verificarIdProduto.middleware';
-import verificarDadosProdutos from '../middleware/verificarDadosProdutos.middleware';
+import ProdutosControllers from '../controller/produtos.controller.js';
+import verificarIdProdutoMiddleware from '../middleware/verificarIdProduto.middleware.js';
+import verificarDadosProdutos from '../middleware/verificarDadosProdutos.middleware.js';
 
 const produtosRouters = Router();
 const produtosControllers = new ProdutosControllers();

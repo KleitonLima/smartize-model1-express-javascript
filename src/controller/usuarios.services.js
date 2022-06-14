@@ -1,4 +1,4 @@
-import UsuariosServices from '../services/usuarios.service';
+import UsuariosServices from '../services/usuarios.service.js';
 
 const usuariosServices = new UsuariosServices();
 
